@@ -26,15 +26,32 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
+##############
+
 1. What is the DOM?
+
+Document Object Model: it treats the html document as a tree structure where each node is an object that represents
+different parts of the page. It allows javascript to manipulate,structure and style the web page.
 
 2. What is an event?
 
+Event is an action thats performed. Click, scroll, double click, mouse enter, etc.
+
 3. What is an event listener?
+
+An event listener is where if you perform an event then something will happen
 
 4. Why would we convert a NodeList into an Array?
 
+nodelist is an array like object. if we need to use array methods, map or filter we have to convert the nodelist into an array.
+
 5. What is a component?
+
+components are reusable code. For example, if you have a navigation menu, rather than having to code each page with the mav list you can create a nav component. You would write the code once and then export it to be used elsewhere within your site.
+
+or components can be described as different sections of the page, ie header, footer, nav bars, main content, etc.
+
+############
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 

@@ -2,7 +2,7 @@
   "name": "web-sprint-challenge-applied-javascript",
   "version": "1.0.0",
   "scripts": {
-    "start": "mkdir -p dist && cp -R ./assets ./dist && parcel index.html"
+    "start": "parcel index.html"
   },
   "repository": {
     "type": "git",
