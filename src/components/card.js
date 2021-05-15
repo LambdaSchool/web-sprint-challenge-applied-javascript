@@ -1,3 +1,14 @@
+import axios from "axios"
+
+
+axios.get("https://lambda-times-api.herokuapp.com/articles")
+  .then(res =>{
+    console.log(res.data)
+  })
+  .catch(err =>{
+    console.log(err)
+  })
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,6 +28,33 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+  const div = document.createElement("div");
+  const div2 = document.createElement("div");
+  const div3 = document.createElement("div");
+  const div4 = document.createElement("div");
+  const image = document.createElement("img");
+  const span = document.createElement("span");
+
+  div.classList.add("card");
+  div2.classList.add("headline");
+  div3.classList.add("author");
+  div4.classList.add("img-container")
+
+
+
+  div2.textContent = `${data.headline}`
+  div3.textContent = data.author
+  span.textContent =`By ${data.authorName}`
+
+  div.appendChild(div2)
+  div.appendChild(div3)
+  div3.appendChild(div4)
+  div4.appendChild(image)
+  div3.appendChild(span)
+
+
+
+
 }
 
 const cardAppender = (selector) => {
