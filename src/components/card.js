@@ -1,4 +1,26 @@
 const Card = (article) => {
+
+  const headline = document.createElement("div")
+headline.classlist.add("headline")
+headline.text.content = ("headline")
+
+const authorPhoto = document.createElement ("img")
+authorPhoto.setAttribute("src")
+
+const authorName = document.createElement("span")
+text.content = "authorName"
+
+const card = document.createElement("div")
+card.classList.add("card")
+
+
+// establishing higharchy
+
+card.append(headline)
+card.append(autorPhoto)
+card.append(authorName)
+
+return card
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -19,7 +41,31 @@ const Card = (article) => {
   //
 }
 
+
+
+const container = document.querySelector(".cards-container")
+
 const cardAppender = (selector) => {
+axios.get("https;//lambda-times-api.herokuapp.com/articles")
+
+.then((res) => {
+ console.log("here is a res:", res)
+  res.data.articles.forEach(url => {
+container.append(Card(articles))
+})
+.catch(err => { 
+
+
+})
+  })
+}
+
+
+
+
+
+
+
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -28,6 +74,5 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-}
 
 export { Card, cardAppender }
