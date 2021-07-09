@@ -65,7 +65,33 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+
+   - **Answer**
+     - The DOM or Document Object model  is a language independent and cross-platform interface that HTML and XML documents in a tree-like structure where each part can be handled in "nodes." it let's us access and manipulate the structure for the browser to render.
+
 2. What is an event?
+
+   - **Answer**
+     - An event is something recognized via function on the DOM such as a click, hover, mouseover, mouuseout etc. The event can be used to tirgger a function or other desired resut. Basically anything that happens to an HTML element using JavaScript can be called JavaScript "event."
+
 3. What is an event listener?
+
+   - **Answer**
+
+     -Among the most frequently used JavaScript structures they permit a programmer to add interactive functionality to HTML elements by "listening" to various "events" that could take place on the page.
+
 4. Why would we convert a NodeList into an Array?
+
+   - **Answer**
+           - Node list have limited built in fuctions. By converting to an array we increase the options for manipulating the data by increasing the built in arrays available to us.
+
 5. What is a component?
+
+   - **Answer**
+           - More often than not they are functions. But basically they are blocks of code that work independently to manipulate data. These blocks then might become globally useful for repetitive actions.
+
+## Rick Mansfield's Pull Request
+
+- [Pull Request](https://github.com/LambdaSchool/web-sprint-challenge-applied-javascript/pull/212
+  )
+  This is here just for safe keeping.
