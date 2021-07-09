@@ -1,4 +1,29 @@
-const Tabs = (topics) => {
+import { headersToString } from "headers-utils/lib";
+
+const Tabs = topics => {
+  if (
+    ((topics[0] = "javascript"),
+    (topics[1] = "bootstrap"),
+    (topics[2] = "technology"))
+  ) {
+    const divStuffs = document.createElement("div");
+    divStuffs.classList.add("topics");
+
+    const divThings1 = document.createElement("div");
+    divThings1.classList.add("tab");
+    divThings1.textContent = "javascript";
+
+    const divThings2 = document.createElement("div");
+    divThings2.classList.add("tab");
+    divThings2.textContent = "bootstrap";
+
+    const divThings3 = document.createElement("div");
+    divThings3.classList.add("tab");
+    divThings3.textContent = "technology";
+  }
+  divStuffs.appendChild(divThings1);
+  divStuffs.appendChild(divThings2);
+  divStuffs.appendChild(divThings3);
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -13,9 +38,9 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
-}
+};
 
-const tabsAppender = (selector) => {
+const tabsAppender = topics => {
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
@@ -23,6 +48,7 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-}
+  fetch("http://localhost:5000/api/topics");
+};
 
-export { Tabs, tabsAppender }
+export { Tabs, tabsAppender };
