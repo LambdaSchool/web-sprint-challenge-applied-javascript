@@ -1,4 +1,27 @@
 const Header = (title, date, temp) => {
+  //Create Element 
+  const divOne = document.createElement('div')
+  const spanOne = document.createElement('span')
+  const titleName = document.createElement('h1')
+  const spanTwo = document.createElement('span')
+  //Parent/Child Connection
+  divOne.appendChild(spanOne)
+  divOne.appendChild(titleName)
+  divOne.appendChild(spanTwo)
+  //Add Classes
+  divOne.classList.add('header')
+  spanOne.classList.add('date')
+  spanTwo.classList.add('temp')
+  //Connect Parameters
+  titleName.textContent(title)
+  spanOne.textContent(date)
+  spanTwo.textContent(temp)
+
+  const displayScreen = document.querySelector('.header-container')
+  displayScreen.appendChild(divOne)
+  
+  return divOne
+
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
