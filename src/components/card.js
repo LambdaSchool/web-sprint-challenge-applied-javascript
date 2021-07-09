@@ -1,4 +1,45 @@
+import axios from 'axios'
+
 const Card = (article) => {
+
+// creating elemnts 
+const cardDiv = document.createElement('div'),
+headlineDiv = document.createElement('div'),
+authorDiv = document.createElement('div'),
+imgDiv = document.createElement('div'),
+img = document.createElement('img') ,
+span = document.createElement('span');
+
+
+// appending them
+
+cardDiv.appendChild(headlineDiv);
+cardDiv.appendChild(authorDiv);
+authorDiv.appendChild(imgDiv);
+imgDiv.appendChild(img);
+authorDiv.appendChild(span);
+
+
+// class list 
+
+cardDiv.classList.add('card');
+headlineDiv.classList.add('headline');
+authorDiv.classList.add('author');
+imgDiv.classList.add('img-container');
+
+img.src = article.authorPhoto;
+
+headlineDiv.textContent = article.headline;
+span.textContent = article.authorName;
+
+cardDiv.addEventListener('click', () => console.log(article.headline));
+
+
+return cardDiv;
+
+
+
+
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -20,6 +61,59 @@ const Card = (article) => {
 }
 
 const cardAppender = (selector) => {
+  
+ 
+  axios.get('https://lambda-times-api.herokuapp.com/articles') 
+
+  .then (res => {
+const cardInfo = res.data.articles;
+console.log(cardInfo)
+/// is grabbing the articles object 
+
+for(let i = 0; i < cardInfo.javascript.length; i++)
+{
+const articleInfo = cardInfo.javascript[i]
+const cardDiv = document.querySelector(selector)
+cardDiv.appendChild(Card(articleInfo))
+}
+
+for(let i = 0; i < cardInfo.bootstrap.length; i++)
+{
+const articleInfo = cardInfo.bootstrap[i]
+const cardDiv = document.querySelector(selector)
+cardDiv.appendChild(Card(articleInfo))
+}
+
+
+for(let i = 0; i < cardInfo.jquery.length; i++)
+{
+const articleInfo = cardInfo.jquery[i]
+const cardDiv = document.querySelector(selector)
+cardDiv.appendChild(Card(articleInfo))
+}
+
+
+for(let i = 0; i < cardInfo.node.length; i++)
+{
+const articleInfo = cardInfo.node[i]
+const cardDiv = document.querySelector(selector)
+cardDiv.appendChild(Card(articleInfo))
+}
+
+
+for(let i = 0; i < cardInfo.technology.length; i++)
+{
+const articleInfo = cardInfo.technology[i]
+const cardDiv = document.querySelector(selector)
+cardDiv.appendChild(Card(articleInfo))
+}
+
+// const cardPush = document.querySelector(selector) 
+
+// cardPush.appendChild(Card(cardInfo))
+
+  })
+  
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
