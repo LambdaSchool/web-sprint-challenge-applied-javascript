@@ -1,4 +1,4 @@
-const Card = (article) => {
+
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -17,17 +17,89 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
-}
+  import axios from 'axios'
 
-const cardAppender = (selector) => {
-  // TASK 6
+
+  const Card = (article) => {
+   
+     const card = document.createElement('div');
+     const headline = document.createElement('div');
+     const author = document.createElement('div');
+     const imgContainer = document.createElement('div');
+     const img = document.createElement('img');
+     const authorName = document.createElement('span');
+  
+  
+     card.classList.add('card');
+     headline.classList.add('headline');
+     author.classList.add('author');
+     imgContainer.classList.add('img-container');
+     //authorName.classList.add('span') // perhaps unnecessary
+  
+   
+     headline.textContent = `{article.headline}`
+     img.src = article.img
+     authorName.textContent = `By: ${article.authorName}`
+  
+  
+    // card.addEventListener('click', (e) => {
+    //   console.log(headline);
+     //});  // fix this
+  
+     card.appendChild(headline);
+     card.appendChild(author);
+     author.appendChild(imgContainer);
+     author.appendChild(authorName);
+     imgContainer.appendChild(img);
+  
+     console.log(card)
+     return card;
+  }   
+  
+  
+// TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
-  // It should obtain articles from this endpoint: `http://localhost:5000/api/articles` (test it in Postman/HTTPie!).
+  // It should obtain articles from this endpoint: `https://lambda-times-api.herokuapp.com/articles`
   // However, the articles do not come organized in a single, neat array. Inspect the response closely!
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-}
 
-export { Card, cardAppender }
+  const cardAppender = (selector) => {
+
+    axios.get(`https://lambda-times-api.herokuapp.com/articles`)
+    .then((response) => {
+    console.log(response)
+      response.data.articles.javascript.forEach(element => {
+        let component = Card(element)
+        document.querySelector(selector).appendChild(Card(component))
+      })
+      response.data.articles.bootstrap.forEach(element => {
+        let component = Card(element)
+        document.querySelector(selector).appendChild(Card(component))
+      });
+      response.data.articles.technology.forEach(element => {
+        let component = Card(element)
+        document.querySelector(selector).appendChild(Card(component))
+      });
+      response.data.articles.jquery.forEach(element => {
+        let component = Card(element)
+        document.querySelector(selector).appendChild(Card(component))
+      });
+      response.data.articles.node.forEach(element => {
+        let component = Card(element)
+        document.querySelector(selector).appendChild(Card(component))
+      });
+      })
+      
+    .catch((err) => {
+      console.log("error", err)
+    })
+    
+    }
+    
+    export { Card, cardAppender }
+    
+    
+    
